@@ -1,3 +1,4 @@
+import Productitem from './products/Productitem'
 import Table from './Table'
 const ProductTable = () => {
   return (
@@ -14,33 +15,15 @@ const ProductTable = () => {
         <Table.Row>
             <Table.ColumnHeader colspan="2">Sporting Goods</Table.ColumnHeader>
         </Table.Row>
-        <Table.Row>
-            <Table.Column>Tennis</Table.Column>
-            <Table.Column>$49.99</Table.Column>
-        </Table.Row>
-        <Table.Row>
-            <Table.Column>Badminton</Table.Column>
-            <Table.Column>$99.99</Table.Column>
-        </Table.Row>
-        <Table.Row>
-            <Table.Column>Basketball</Table.Column>
-            <Table.Column>$29.99</Table.Column>
-        </Table.Row>
+        <Productitem name="Tennis" price={49.9}/>
+        <Productitem name="Badminton" price={99.9}/>
+        <Productitem name="Basketball" price={29.9}/>
         <Table.Row>
             <Table.ColumnHeader colspan="2">Electronics</Table.ColumnHeader>
         </Table.Row>
-        <Table.Row>
-            <Table.Column>Ipod Touch</Table.Column>
-            <Table.Column>$99.99</Table.Column>
-        </Table.Row>
-        <Table.Row>
-            <Table.Column>iPhone 5</Table.Column>
-            <Table.Column>$399.99</Table.Column>
-        </Table.Row>
-        <Table.Row>
-            <Table.Column>Nexus 5</Table.Column>
-            <Table.Column>$399.99</Table.Column>
-        </Table.Row>
+        <Productitem name="Ipod Touch" price={99.99}/>
+        <Productitem name="iPhone 5" price={399.99}/>
+        <Productitem name="Nexus 5" price={399.99}/>
         </Table.Tbody>
       </Table.TableContainer>
     </div>
