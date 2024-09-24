@@ -27,6 +27,9 @@ const ProductTable = () => {
             <Table.Column>$29.99</Table.Column>
         </Table.Row>
         <Table.Row>
+            <Table.ColumnHeader colspan="2">Electronics</Table.ColumnHeader>
+        </Table.Row>
+        <Table.Row>
             <Table.Column>Ipod Touch</Table.Column>
             <Table.Column>$99.99</Table.Column>
         </Table.Row>
