@@ -1,3 +1,4 @@
+import ProductCategory from './products/ProductCategory'
 import Productitem from './products/Productitem'
 import Table from './Table'
 const ProductTable = () => {
@@ -12,19 +13,20 @@ const ProductTable = () => {
       </Table.Thead>
 
       <Table.Tbody>
-        <Table.Row>
-            <Table.ColumnHeader colspan="2">Sporting Goods</Table.ColumnHeader>
-        </Table.Row>
+
+        <ProductCategory category="Sporting Goods"/>
+
         <Productitem name="Tennis" price={49.9}/>
         <Productitem name="Badminton" price={99.9}/>
         <Productitem name="Basketball" price={29.9}/>
-        <Table.Row>
-            <Table.ColumnHeader colspan="2">Electronics</Table.ColumnHeader>
-        </Table.Row>
+
+        <ProductCategory category="Electronics"/>
+
         <Productitem name="Ipod Touch" price={99.99}/>
         <Productitem name="iPhone 5" price={399.99}/>
         <Productitem name="Nexus 5" price={399.99}/>
-        </Table.Tbody>
+        
+      </Table.Tbody>
       </Table.TableContainer>
     </div>
   )
