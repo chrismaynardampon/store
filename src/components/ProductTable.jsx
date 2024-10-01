@@ -22,12 +22,12 @@ const ProductTable = ({headers, products}) => {
 
       <Table.Tbody>
 
-        <ProductCategory category={headers[0]}/>
+        {sportinggoods.length > 0 && <ProductCategory category={headers[0]}/>}
       {sportinggoods.map((sportingGood) => (
         <Productitem name={sportingGood.name} price={sportingGood.price}/>
       ))}
         
-        <ProductCategory category={headers[1]}/>
+        {electronics.length > 0 && <ProductCategory category={headers[1]}/>}
 
         {electronics.map(({id,name,price,type}) => (
           <Productitem key={`${type}-${id}`} name={name} price={price}/>
