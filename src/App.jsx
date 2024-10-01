@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { useState } from 'react';
 import './App.css';
 import FilterProductTable from './components/FilterProductTable';
 import ProductTable from './components/ProductTable';
@@ -19,11 +20,12 @@ const headers = [
 ];
 
 function App() {
+ const [query, setQuery] = useState("");
 
   return (
     <div>
       <FilterProductTable>
-        <SearchBar/>
+        <SearchBar query={query} setQuery={setQuery}/>
         <ProductTable headers={headers} products={products}/>
       </FilterProductTable>
     </div>
