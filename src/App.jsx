@@ -22,11 +22,13 @@ const headers = [
 function App() {
  const [query, setQuery] = useState("");
 
+ const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
+
   return (
     <div>
       <FilterProductTable>
         <SearchBar query={query} setQuery={setQuery}/>
-        <ProductTable headers={headers} products={products}/>
+        <ProductTable headers={headers} products={filteredProducts}/>
       </FilterProductTable>
     </div>
   );
