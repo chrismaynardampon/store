@@ -3,7 +3,7 @@
 const FilterProductTable = (props) => {
     const {children} = props;
     return (
-    <div>
+    <div className="flex flex-col gap-5 items-center">
       {children}
     </div>
   )
