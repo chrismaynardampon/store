@@ -6,15 +6,25 @@ import SearchBar from './components/SearchBar';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
  const [query, setQuery] = useState("");
  const [stockChecked, setStockChecked] = useState(false);
 
  useEffect(() => {
     const getProducts = async () => {
-      const response = await fetch('https://fakestoreapi.com/products');
-      const data = await response.json();
+      try {
+        setLoading(true);
 
-      setProducts(data);
+        const response = await fetch('https://fakestoreapi.com/products');
+        const data = await response.json();
+
+        setProducts(data);
+
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+      }
     };
 
     getProducts();
@@ -25,9 +35,9 @@ function App() {
     <div>
       <FilterProductTable>
         <SearchBar query={query} setQuery={setQuery} stockChecked={stockChecked} setStockChecked={setStockChecked} />
-        <div className='flex flex-col gap-3'>
+        {!loading ? (<div className='flex flex-col gap-3'>
         {products.map((product) => <span key={product.id}> {product.title}</span>)}
-        </div>
+        </div>) : <span>Loading...</span>}
       </FilterProductTable>
     </div>
   );
