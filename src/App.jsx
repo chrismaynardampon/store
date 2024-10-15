@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import FilterProductTable from './components/FilterProductTable';
 import SearchBar from './components/SearchBar';
+import ProductCard from './components/products/ProductCard';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -35,9 +36,11 @@ function App() {
     <div>
       <FilterProductTable>
         <SearchBar query={query} setQuery={setQuery} stockChecked={stockChecked} setStockChecked={setStockChecked} />
-        {!loading ? (<div className='flex flex-col gap-3'>
-        {products.map((product) => <span key={product.id}> {product.title}</span>)}
-        </div>) : <span>Loading...</span>}
+        {!loading ? (
+          <div className='flex flex-wrap gap-3'>
+            {products.map((product) => (
+              <ProductCard key={product.id} imageSrc={product.image} name={product.title} />))}
+        </div>) : (<span>Loading...</span>)}
       </FilterProductTable>
     </div>
   );
